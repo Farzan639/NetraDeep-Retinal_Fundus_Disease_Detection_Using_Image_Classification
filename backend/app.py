@@ -50,7 +50,7 @@ import torch.nn.functional as F
 
 @app.get("/")
 def root():
-    return {"Fuck you!!! DJ 🖕🏻🖕🏻 Chal ab jaakr frontend me API integrete krde"}
+    return {"Fuck you DJ!! 🖕🏻🖕🏻 yh link backend ka hai Chal ab jaakr frontend me API integrete krde isi link k aage /predict laga diyo wahan pr image send wani h UI se"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
