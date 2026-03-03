@@ -1,46 +1,42 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const baseLinkClass =
-    "rounded-full px-3 py-1.5 text-sm font-medium transition-colors";
+    "relative px-4 py-2 text-sm font-medium transition-all duration-300";
 
   const navItems = [
     { to: "/", label: "Home" },
     { to: "/predict", label: "Predict" },
+    { to: "/diseases", label: "Diseases" },
   ];
 
   return (
-    <nav className="w-full px-4 pt-4">
-      <div className="mx-auto flex w-full max-w-3xl flex-col items-center justify-between gap-3 rounded-2xl border border-blue-100 bg-white/95 px-4 py-3 shadow-sm sm:flex-row sm:px-6">
-        <h1 className="text-base font-bold tracking-wide text-blue-700 sm:text-lg">
-          Retinal AI
+    <nav className="sticky top-4 z-50 px-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-2xl border border-white/30 bg-white/70 px-6 py-3 shadow-lg backdrop-blur-md">
+        
+        {/* Logo */}
+        <h1 className="text-lg font-bold tracking-wide text-blue-700">
+          Netra<span className="text-gray-800">Deep</span>
         </h1>
 
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        {/* Navigation */}
+        <div className="flex items-center gap-2 rounded-full bg-white/60 p-1 shadow-inner">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                [
-                  baseLinkClass,
+                `${baseLinkClass} ${
                   isActive
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-700",
-                ].join(" ")
+                    ? "rounded-full bg-blue-600 text-white shadow-md"
+                    : "text-gray-700 hover:text-blue-700"
+                }`
               }
             >
               {item.label}
             </NavLink>
           ))}
-
-          <Link
-            to="/#diseases"
-            className={`${baseLinkClass} text-gray-700 hover:bg-blue-50 hover:text-blue-700`}
-          >
-            Diseases
-          </Link>
         </div>
       </div>
     </nav>

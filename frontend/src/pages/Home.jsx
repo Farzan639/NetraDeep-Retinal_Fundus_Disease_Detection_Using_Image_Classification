@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import RetinaCarousel from "../components/RetinaCarousel";
+import DiseasesGrid from "../components/DiseasesGrid";
 
 const Home = () => {
   const { hash } = useLocation();
@@ -16,18 +17,26 @@ const Home = () => {
 
   return (
     <>
+      {/* Hero Section */}
       <RetinaCarousel />
 
+      {/* Diseases Section */}
       <section
-        id="diseases"
-        className="mx-auto mt-8 w-full max-w-6xl rounded-2xl border border-blue-100 bg-white px-6 py-8 shadow-sm"
-      >
-        <h2 className="text-2xl font-semibold text-blue-700">Diseases</h2>
-        <p className="mt-3 text-gray-600">
-          This section can highlight retinal diseases, symptoms, and sample
-          fundus images.
-        </p>
-      </section>
+  id="diseases"
+  className="relative mx-auto mt-20 w-full max-w-6xl px-6"
+>
+  <div className="text-center">
+    <h2 className="text-4xl font-bold text-gray-800">
+      Detectable Retinal Conditions
+    </h2>
+
+    <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
+      Our AI system identifies 11 major retinal diseases using advanced deep learning models trained on fundus imaging datasets.
+    </p>
+  </div>
+
+  <DiseasesGrid />
+</section>
     </>
   );
 };
