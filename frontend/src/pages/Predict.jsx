@@ -10,6 +10,7 @@ const Predict = () => {
   const [preview, setPreview] = useState(null);
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [heatmap, setHeatmap] = useState(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -27,6 +28,7 @@ const Predict = () => {
       setLoading(true);
       const data = await predictImage(image);
       setResults(data.top_3_predictions);
+      setHeatmap(data.heatmap);
     } catch (error) {
       console.error(error);
       alert("Prediction failed. Check backend.");
@@ -83,6 +85,16 @@ const Predict = () => {
               className="mt-6 rounded-2xl border border-slate-700 shadow-lg shadow-black/25"
             />
           )}
+          {heatmap && (
+  <div className="mt-6">
+    <p className="mb-2 text-sm text-slate-400">Model Focus (Grad-CAM)</p>
+    <img
+      src={`data:image/jpeg;base64,${heatmap}`}
+      alt="GradCAM"
+      className="rounded-2xl border border-slate-700 shadow-lg"
+    />
+  </div>
+)}
 
           <button
             onClick={handlePredict}
@@ -158,6 +170,17 @@ const Predict = () => {
                   assessment and should be reviewed by a certified ophthalmologist
                   for professional diagnosis and confirmation.
                 </p>
+              </div>
+              <div className="rounded-2xl border border-slate-700 bg-slate-950/50 p-6">
+              <h4 className="font-semibold text-sky-300">Heatmap Guide</h4>
+<p className="mt-2 text-sm text-slate-300">The colored heatmap shows which parts of the retina the AI model focused on while making the prediction.<br/>
+<br/>
+<b>🔴 Red / Orange Areas</b> → These are the most important regions.
+The model is strongly focusing on these areas, and they may contain signs of disease or abnormalities.<br/><br/>
+<b>🟡 Yellow / Green Areas</b> → These regions have moderate importance.
+The model considers them somewhat relevant for the prediction.<br/><br/>
+<b>🔵 Blue Areas</b> → These are less important regions.
+The model is mostly ignoring these areas as they are likely normal or not useful for diagnosis.</p>
               </div>
             </div>
           )}

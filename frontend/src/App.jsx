@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Predict from "./pages/Predict";
-import Diseases from "./pages/Diseases";
+// import Diseases from "./pages/Diseases";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/predict" element={<Predict />} />
-        <Route path="/diseases" element={<Diseases />} />
+        {/* <Route path="/diseases" element={<Diseases />} /> */}
       </Routes>
     </>
   );
