@@ -8,7 +8,7 @@ import PathologicalMyopia from "../assets/diseases/myopia.jpg";
 import ProliferativeDR from "../assets/diseases/ProliferativeDR.jpg";
 import DryAMD from "../assets/diseases/DryAMD.jpg";
 import WetAMD from "../assets/diseases/WetAMD.jpg";
-import severeDR from "../assets/diseases/severeDR.jpg";
+import severeDR from "../assets/diseases/SevereDR.jpg";
 
 
 const images = {
