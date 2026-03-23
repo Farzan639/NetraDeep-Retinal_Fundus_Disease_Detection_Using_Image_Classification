@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
 import Cover from "../assets/Cover.png";
-import Image from "../assets/Image.png";
+
 
 import "swiper/css";
 import "swiper/css/pagination";

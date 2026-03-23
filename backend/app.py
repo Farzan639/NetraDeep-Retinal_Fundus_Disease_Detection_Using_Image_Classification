@@ -59,7 +59,7 @@ import torch.nn.functional as F
 
 @app.get("/")
 def root():
-    return {"Backend is live !!"}
+    return {"Backend is live !!!"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):

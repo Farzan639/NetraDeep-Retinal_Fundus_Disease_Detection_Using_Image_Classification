@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://netradeep-retinal-fundus-disease.onrender.com/predict";
 // ⚠ Replace this with your real Render backend URL
 
 export const predictImage = async (imageFile) => {
