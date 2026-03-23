@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://bbae-2409-40d2-11-574e-3541-a652-2649-c454.ngrok-free.app/";
+const API_URL = "https://bbae-2409-40d2-11-574e-3541-a652-2649-c454.ngrok-free.app/predict";
 // ⚠ Replace this with your real Render backend URL
 
 export const predictImage = async (imageFile) => {
